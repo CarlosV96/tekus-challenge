@@ -1,0 +1,65 @@
+.title {
+  margin: 25px 0;
+  display: block;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+  font-style: italic;
+  font-family: 'Lobster', cursive;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+.contact-data {
+  background-color: #efeeee;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #cdcdcd;
+  padding: 20px
+}
+
+.label-info {
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+.img-user {
+  width: 20px;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-add-data {
+  margin-top: 10px;
+}
+
+.add-new-data {
+  margin: 2px 10px;
+
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+
+}
+.add-new-data:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.add-new-data:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+
+@media only screen and (max-width: 768px) {
+  .add-new-data{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
