@@ -5,29 +5,100 @@
     </div>
     <hr />
     <div class="edit-data">
-      <div class="row">
-        <div class="col-md-12">
-          <p class="info-name">Name</p>
-          <input type="text" class="form-control" id="nombre" />
+      <form [formGroup]="editForm" (ngSubmit)="sendForm(editForm.value.Id)">
+        <div class="row">
+          <div class="col-md-3">
+            <label class="info-name">Id</label>
+            <input
+              type="text"
+              class="form-control inputs"
+              id="Id"
+              formControlName="Id"
+              readonly
+            />
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <p class="info">Email</p>
-          <input type="text" class="form-control" id="email" />
+        <div class="row">
+          <div class="col-md-12">
+            <label class="info-name">Name</label>
+            <input
+              type="text"
+              class="form-control inputs"
+              id="Name"
+              formControlName="Name"
+              placeholder="Write your name"
+            />
+          </div>
         </div>
-        <div class="col-md-4">
-          <p class="info">Code country</p>
-          <input type="text" class="form-control" id="code-country" />
+        <div class="row">
+          <div class="col-md-4">
+            <label class="info">Email</label>
+            <input
+              type="email"
+              class="form-control inputs"
+              id="Email"
+              formControlName="Email"
+              placeholder="Write your email"
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="info">CountryCode</label>
+            <input
+              type="text"
+              class="form-control inputs"
+              id="CountryCode"
+              formControlName="CountryCode"
+              placeholder="Write your code-country"
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="info">Phone</label>
+            <input
+              type="text"
+              class="form-control inputs"
+              id="PhoneNumber"
+              formControlName="PhoneNumber"
+              placeholder="Write your phone number"
+            />
+          </div>
         </div>
-        <div class="col-md-4">
-          <p class="info">Phone</p>
-          <input type="text" class="form-control" id="phone" />
+        <div class="row">
+          <div class="col-md-4">
+            <label class="info">Area</label>
+            <input
+              type="email"
+              class="form-control inputs"
+              id="Area"
+              formControlName="Area"
+              placeholder="Write your Area"
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="info">JobTitle</label>
+            <input
+              type="text"
+              class="form-control inputs"
+              id="JobTitle"
+              formControlName="JobTitle"
+              placeholder="Write your JobTitle"
+            />
+          </div>
+          <div class="col-md-4">
+            <label class="info">Topics</label>
+            <input
+              type="text"
+              class="form-control inputs"
+              id="Topics"
+              formControlName="Topics"
+              placeholder="Write your Topics"
+            />
+          </div>
         </div>
         <div class="btn-add-data">
-          <button class="add-new-data" role="button">Save</button>
+          <button type="submit" class="add-new-data" role="button">Save</button>
         </div>
-      </div>
+      </form>
+
     </div>
   </div>
 </div>
