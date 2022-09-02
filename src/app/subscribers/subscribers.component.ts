@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api/api.service';
 import { Router }  from '@angular/router';
 import { SubscribersI } from '../models/subscribers.interface';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -16,8 +18,7 @@ export class SubscribersComponent implements OnInit {
   constructor(private api:ApiService, private router:Router) { }
 
   ngOnInit(): void {
-    this.api.getSubscribers('',1,20,'PublicId',0).subscribe(data => {
-
+    this.api.getSubscribers('',1,10,'PublicId',0).subscribe(data => {
       this.subscribers = data;
 
     }) ;
@@ -33,6 +34,27 @@ export class SubscribersComponent implements OnInit {
 
   see(id:any) {
     this.router.navigate(['infoSubscriber', id]);
+  }
+
+  deleteConfirmation(id:number){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.delete(id);
+        Swal.fire(
+          'Deleted!',
+          'Your subscriber has been deleted.',
+          'success'
+        )
+      }
+    })
   }
 
   delete(id:any) {

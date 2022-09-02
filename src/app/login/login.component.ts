@@ -6,6 +6,7 @@ import { LoginI } from '../models/login.interface';
 import { ResponseI } from '../models/response.interface'
 
 import { Router }  from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -34,15 +35,30 @@ export class LoginComponent implements OnInit {
 
   onLogin(form:any) {
 
-    this.api.login(form).subscribe(data => {
+    try {
+      this.api.login(form).subscribe(data => {
+        
+        const dataResponse:any = data;
+        if (dataResponse.Status == "1") {
 
-      let dataResponse:ResponseI = data;
-      if (dataResponse.Status == "1") {
-        //console.log("dataresponse",dataResponse);
-        localStorage.setItem("token", dataResponse.Token);
-        this.router.navigate(['subscribers'])
-      }
-    })
+          localStorage.setItem("token", dataResponse.Token);
+          this.router.navigate(['subscribers'])
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Wrong Credentials!',
+          })
+        }
+      })
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Wrong Credentials!',
+      })
+    }
+
   }
 
 }
