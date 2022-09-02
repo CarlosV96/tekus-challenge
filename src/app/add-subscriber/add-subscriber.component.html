@@ -1,15 +1,19 @@
 <div class="add">
   <div class="container contact_form">
     <div class="row">
-      <div class="col-md-3"></div>
+      <div class="col-md-3">
+        <button class="btn btn-light" (click)="comeBack()">Back</button>
+      </div>
+
       <div class="col-md-6">
+
         <div class="form">
+
           <h1>Add subscriber</h1>
           <h3>Enter the necessary data</h3>
-
-          <form [formGroup]="addForm">
+          <form [formGroup]="addForm" (ngSubmit)="enterForm(addForm.value)">
             <div class="sectionName">
-              <span class="tittle">Name</span>
+              <span for="addName" class="tittle">Name</span>
               <span> *</span>
               <input
                 [class.is-invalid]="
@@ -18,14 +22,14 @@
                 type="text"
                 class="form-control inputs"
                 id="addName"
-                formControlName="addName"
-                required="required"
+                formControlName="Name"
+                required
                 placeholder="Write your name"
               />
             </div>
 
             <div class="sectionName">
-              <span class="tittle">Email</span>
+              <span for="addEmail" class="tittle">Email</span>
               <span> *</span>
               <input
                 [class.is-invalid]="
@@ -34,39 +38,94 @@
                 type="email"
                 class="form-control inputs"
                 id="addEmail"
-                formControlName="addEmail"
+                formControlName="Email"
                 required="required"
                 placeholder="Write your email"
               />
             </div>
 
             <div class="sectionName">
-              <label for="code-country" class="tittle">Code country </label>
+              <label for="addCodeCountry" class="tittle">Code country </label>
               <input
                 type="text"
                 class="form-control inputs"
                 id="addCodeCountry"
-                formControlName="addCodeCountry"
+                formControlName="CountryCode"
                 required="required"
                 placeholder="Write your code country"
               />
             </div>
 
             <div class="sectionName">
-              <label for="phone" class="tittle">Phone</label>
+              <label for="CountryName" class="tittle">Country name </label>
+              <input
+                type="text"
+                class="form-control inputs"
+                id="CountryName"
+                formControlName="CountryName"
+                required="required"
+                placeholder="Write your Country name"
+              />
+            </div>
+
+            <div class="sectionName">
+              <label for="addPhoneCode" class="tittle">PhoneCode</label>
+              <input
+                type="text"
+                class="form-control inputs"
+                id="addPhoneCode"
+                formControlName="PhoneCode"
+                placeholder="Write your phone"
+                required
+              />
+            </div>
+
+            <div class="sectionName">
+              <label for="addphone" class="tittle">Phone</label>
               <input
                 type="text"
                 class="form-control inputs"
                 id="addPhone"
-                formControlName="addPhone"
+                formControlName="PhoneNumber"
                 required="required"
                 placeholder="Write your phone"
               />
             </div>
 
-            <button class="save" type="submit" name="submit" id="submit">
-              <p>Save</p>
-            </button>
+            <div class="sectionName">
+              <label for="addArea" class="info">Area</label>
+              <input
+                type="text"
+                class="form-control inputs"
+                id="addArea"
+                formControlName="Area"
+                placeholder="Write your Area"
+              />
+            </div>
+
+            <div class="sectionName">
+              <label for="addJobTittle" class="info">JobTitle</label>
+              <input
+                type="text"
+                class="form-control inputs"
+                id="addJobTitle"
+                formControlName="JobTitle"
+                placeholder="Write your JobTitle"
+              />
+            </div>
+
+            <div class="sectionName">
+              <label for="addTopics" class="info">Topics</label>
+              <input
+                type="text"
+                class="form-control inputs"
+                id="addTopics"
+                formControlName="Topics"
+                placeholder="Write your Topics"
+              />
+            </div>
+
+            <input class="save" type="submit" value="Save"/>
 
             <p class="alert">
               <span class="required"> * </span>fields are required.

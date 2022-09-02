@@ -1,0 +1,26 @@
+.title {
+  margin: 25px 0;
+  display: block;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+  font-style: italic;
+  font-family: 'Lobster', cursive;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+.contact-data {
+  background-color: #efeeee;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #cdcdcd;
+  padding: 20px
+}
+
+.label-info {
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 0px;
+}

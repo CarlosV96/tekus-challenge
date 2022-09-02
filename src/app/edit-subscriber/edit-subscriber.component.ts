@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { SubscribersI } from '../models/subscribers.interface';
 import { ApiService } from '../services/api/api.service';
 
 @Component({
@@ -9,16 +8,13 @@ import { ApiService } from '../services/api/api.service';
   templateUrl: './edit-subscriber.component.html',
   styleUrls: ['./edit-subscriber.component.css'],
 })
-
 export class EditSubscriberComponent implements OnInit {
-
   constructor(
     private activerouter: ActivatedRoute,
     private router: Router,
-    private api: ApiService
+    private api: ApiService,
   ) {}
 
-  //dataSubscribe: SubscribersI[] = [];
   editForm = new FormGroup({
     Id: new FormControl(''),
     Name: new FormControl('', Validators.required),
@@ -33,6 +29,7 @@ export class EditSubscriberComponent implements OnInit {
   ngOnInit(): void {
     const idSubscriber = this.activerouter.snapshot.paramMap.get('id');
     this.api.getSingleSubscriber(idSubscriber).subscribe((data) => {
+
       const dataSubscribers = data;
 
       this.editForm.setValue({
@@ -48,10 +45,14 @@ export class EditSubscriberComponent implements OnInit {
     });
   }
 
-  sendForm(id:any){
-    this.api.putSubscriber(id).subscribe(data => {
-      console.log(data);
-    })
+  sendForm(id: any, body:any) {
+    this.api.putSubscriber(id, body).subscribe((data) => {
+      this.router.navigate(['subscribers']);
+    });
+  }
+
+  comeBack() {
+    this.router.navigate(['subscribers']);
   }
 
 }

@@ -1,23 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from '../services/api/api.service';
 
 @Component({
   selector: 'add-subscriber',
   templateUrl: './add-subscriber.component.html',
-  styleUrls: ['./add-subscriber.component.css']
+  styleUrls: ['./add-subscriber.component.css'],
 })
 export class AddSubscriberComponent implements OnInit {
 
-  constructor() { }
 
   addForm = new FormGroup({
-    addName: new FormControl('', [Validators.required]),
-    addEmail: new FormControl('', [Validators.required]),
-    addCodeCountry: new FormControl(''),
-    addPhone: new FormControl('')
-  })
+    Name: new FormControl('', [Validators.required]),
+    Email: new FormControl('', [Validators.required]),
+    CountryCode: new FormControl(''),
+    CountryName: new FormControl(''),
+    PhoneCode: new FormControl(''),
+    PhoneNumber: new FormControl(''),
+    Area: new FormControl(''),
+    JobTitle: new FormControl(''),
+    Topics: new FormControl([]),
+  });
 
-  ngOnInit(): void {
+  subscribers: any = {
+    "Subscribers": [],
+  };
+
+  constructor(private api: ApiService, private router: Router) {}
+
+  ngOnInit(): void {}
+
+  enterForm(form: any) {
+    this.subscribers.Subscribers.push(form);
+    console.log(typeof form);
+    console.log(this.subscribers);
+    this.api.postSubscriber(this.subscribers).subscribe((data) => {
+      console.log(data);
+    });
   }
 
+  comeBack() {
+    this.router.navigate(['subscribers']);
+  }
+  
 }

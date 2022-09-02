@@ -33,8 +33,33 @@ export class ApiService {
     return this.http.get<SubscribersI>(link, { headers: headers });
   }
 
-  putSubscriber(id:any):Observable<ResponseI>{
+  putSubscriber(id:any, body:any){
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     const link = `${this.url}subscribers/${id}`;
-    return this.http.put<ResponseI>(link, id);
+    return this.http.put(link, body,  { headers: headers });
   }
+
+  deleteSubscriber(id:any){
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const link = `${this.url}subscribers/${id}`;
+    return this.http.delete(link, { headers: headers });
+  }
+
+  postSubscriber(form:any):Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const link = `${this.url}subscribers`;
+    return this.http.post<any>(link, form, { headers: headers});
+  }
+
+  getCountries(criteria: string, page:number, count: number):Observable<any[]> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const link = `${this.url}countries/?criteria=${criteria}&page=${page}&count=${count}`;
+    return this.http.get<any>(link, { headers: headers }).pipe(map((data: any) => data.Data ));
+  }
+
+
 }

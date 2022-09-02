@@ -10,26 +10,40 @@ import { SubscribersI } from '../models/subscribers.interface';
   styleUrls: ['./subscribers.component.css']
 })
 export class SubscribersComponent implements OnInit {
-  // .. . . .: any[];
+
   subscribers: SubscribersI[] = [];
 
   constructor(private api:ApiService, private router:Router) { }
 
   ngOnInit(): void {
-    this.api.getSubscribers('',1,10,'PublicId',0).subscribe(data => {
-      //console.log("DATA",data[0].Name);
+    this.api.getSubscribers('',1,20,'PublicId',0).subscribe(data => {
+
       this.subscribers = data;
-      //console.log(this.subscribers.Data[0]);
+
     }) ;
   }
 
   edit(id:any) {
-    //console.log(id);
     this.router.navigate(['editSubscriber', id])
   }
 
   add(){
     this.router.navigate(['addSubscriber']);
+  }
+
+  see(id:any) {
+    this.router.navigate(['infoSubscriber', id]);
+  }
+
+  delete(id:any) {
+    this.api.deleteSubscriber(id).subscribe(data => {
+      console.log("data", data);
+      this.ngOnInit();
+    })
+  }
+
+  countries() {
+    this.router.navigate(['countries']);
   }
 
 }

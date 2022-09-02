@@ -1,0 +1,32 @@
+<div class="countries">
+  <div class="container">
+    <div class="head">
+      <h4 class="title">Countries</h4>
+        <button class="add-new-data" (click)="comeBack()">Back</button>
+    </div>
+    <hr />
+    <div>
+      <div class="contact-data">
+        <div class="row" *ngFor="let country of countries">
+          <div class="col">
+            <p class="label-info">Code</p>
+            <p class="data-info">{{ country.Code }} </p>
+          </div>
+          <div class="col">
+            <p class="label-info">Code3</p>
+            <p class="data-info">{{ country.Code3 }}</p>
+          </div>
+          <div class="col">
+            <p class="label-info">Name</p>
+            <p class="data-info">{{ country.Name }}</p>
+          </div>
+          <div class="col">
+            <div class="label-info">PhoneCode</div>
+            <p class="data-info">{{ country.PhoneCode }}</p>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
