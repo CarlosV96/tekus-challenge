@@ -24,3 +24,9 @@ body {
   font-weight: 600;
   margin-bottom: 0px;
 }
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,11 +1,14 @@
 <div class="edit">
   <div class="container">
-    <div class="row">
-      <h4 class="title">Info subscriber</h4>
+    <div class="head">
+      <div><h4 class="title">Info subscriber</h4></div>
+      <div class="btn-add-data">
+        <button class="add-new-data" (click)="comeBack()">Come Back</button>
+      </div>
     </div>
     <hr />
     <div class="contact-data">
-      <div class="row" >
+      <div class="row">
         <div class="col">
           <p class="label-info">Param</p>
           <p class="data-info">Id</p>
@@ -51,7 +54,7 @@
           <p class="data-info">{{ info.PhoneCode }}.</p>
           <p class="data-info">{{ info.PhoneCodeAndNumber }}.</p>
           <p class="data-info">{{ info.PhoneNumber }}.</p>
-          <p class="data-info">{{ info.PublicId }}. </p>
+          <p class="data-info">{{ info.PublicId }}.</p>
           <p class="data-info">{{ info.SubscriptionDate }}.</p>
           <p class="data-info">{{ info.SubscriptionMethod }}.</p>
           <p class="data-info">{{ info.SubscriptionState }}.</p>
@@ -62,15 +65,6 @@
         </div>
       </div>
     </div>
-    <div class="btn-add-data">
-      <button
-        class="add-new-data"
-        role="button"
-        (click)="comeBack()"
-      >
-        Come Back
-      </button>
-    </div>
-    <hr>
+    <hr />
   </div>
 </div>

@@ -1,14 +1,11 @@
 <div class="add">
   <div class="container contact_form">
     <div class="row">
-      <div class="col-md-3">
-        <button class="btn btn-light" (click)="comeBack()">Back</button>
+      <div class="col-md-3 btn-add-data">
+        <button class="add-new-data" (click)="comeBack()">Back</button>
       </div>
-
       <div class="col-md-6">
-
         <div class="form">
-
           <h1>Add subscriber</h1>
           <h3>Enter the necessary data</h3>
           <form [formGroup]="addForm" (ngSubmit)="enterForm(addForm.value)">
@@ -17,7 +14,7 @@
               <span> *</span>
               <input
                 [class.is-invalid]="
-                  addForm.get('name')?.touched && addForm.get('name')?.invalid
+                  addForm.get('Name')?.touched && addForm.get('Name')?.invalid
                 "
                 type="text"
                 class="form-control inputs"
@@ -33,13 +30,13 @@
               <span> *</span>
               <input
                 [class.is-invalid]="
-                  addForm.get('email')?.touched && addForm.get('email')?.invalid
+                  addForm.get('Email')?.touched && addForm.get('Email')?.invalid
                 "
                 type="email"
                 class="form-control inputs"
                 id="addEmail"
                 formControlName="Email"
-                required="required"
+                required
                 placeholder="Write your email"
               />
             </div>
@@ -51,7 +48,7 @@
                 class="form-control inputs"
                 id="addCodeCountry"
                 formControlName="CountryCode"
-                required="required"
+                required
                 placeholder="Write your code country"
               />
             </div>
@@ -63,7 +60,6 @@
                 class="form-control inputs"
                 id="CountryName"
                 formControlName="CountryName"
-                required="required"
                 placeholder="Write your Country name"
               />
             </div>
@@ -76,7 +72,6 @@
                 id="addPhoneCode"
                 formControlName="PhoneCode"
                 placeholder="Write your phone"
-                required
               />
             </div>
 
@@ -87,7 +82,7 @@
                 class="form-control inputs"
                 id="addPhone"
                 formControlName="PhoneNumber"
-                required="required"
+                required
                 placeholder="Write your phone"
               />
             </div>
@@ -137,43 +132,4 @@
     </div>
   </div>
 </div>
-<!-- <div class="subscribers">
-  <div class="container">
-    <div class="row">
-      <h4 class="title-book">Add subscriber</h4>
-      <div class="col-md-12">
-        <form>
-          <div class="row">
-            <div class="col-md-3">
-              <div class="mb-3">
-                <label for="name" class="form-label"> Name </label>
-                <input type="text" class="form-control" id="name" />
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="mb-3">
-                <label for="email" class="form-label"> Email </label>
-                <input type="mail" class="form-control" id="email" />
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="mb-3">
-                <label for="code-country" class="form-label">
-                  Code country
-                </label>
-                <input type="text" class="form-control" id="code-country" />
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="mb-3">
-                <label for="phone" class="form-label"> Phone </label>
-                <input type="text" class="form-control" id="phone" />
-              </div>
-            </div>
-          </div>
-        </form>
-        <button>Guardar</button>
-      </div>
-    </div>
-  </div>
-</div> -->
+

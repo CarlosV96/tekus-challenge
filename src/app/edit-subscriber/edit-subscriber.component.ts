@@ -47,6 +47,7 @@ export class EditSubscriberComponent implements OnInit {
 
   sendForm(id: any, body:any) {
     this.api.putSubscriber(id, body).subscribe((data) => {
+      console.log(data);
       this.router.navigate(['subscribers']);
     });
   }

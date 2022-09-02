@@ -1,7 +1,10 @@
 <div class="edit">
   <div class="container">
-    <div class="row">
+    <div class="head">
       <h4 class="title">Edit subscriber</h4>
+      <div class="btn-add-data">
+        <button class="add-new-data" (click)="comeBack()"> Come Back </button>
+      </div>
     </div>
     <hr />
     <div class="edit-data">
@@ -96,15 +99,6 @@
         </div>
         <div class="btn-add-data">
           <button type="submit" class="add-new-data" role="button">Save</button>
-        </div>
-        <div class="btn-add-data">
-          <button
-            class="add-new-data"
-            role="button"
-            (click)="comeBack()"
-          >
-            Come Back
-          </button>
         </div>
       </form>
     </div>
