@@ -27,38 +27,83 @@
     <hr />
     <div>
       <div class="contact-data">
-        <div class="row">
-          <div class="col-2">
-            <img src="../../assets/img/contact.webp" alt="User" class="img-user" />
-          </div>
+        <div class="row" *ngFor='let subscriber of subscribers'>
           <div class="col">
             <p class="label-info">Id</p>
-            <p class="data-info">"aqui viene el id"</p>
+            <p class="data-info">{{subscriber.Id}}</p>
+            <!--<img src="../../assets/img/contact.webp" alt="User" class="img-user" />-->
           </div>
-          <div class="col">
-            <div class="label-info">Name</div>
-            <div class="data-info">"Aqui viene el nombre"</div>
-          </div>
-          <div class="col">
-            <div class="label-info">Phone</div>
+          <div class="col" >
+            <p class="label-info">Name</p>
+            <p class="data-info">{{subscriber.Name}}</p>
           </div>
           <div class="col">
             <div class="label-info">Email</div>
+            <p class="data-info">{{subscriber.Email}}</p>
+          </div>
+          <div class="col">
+            <div class="label-info">CountryCode</div>
+            <p class="data-info">{{subscriber.CountryCode}}</p>
+          </div>
+          <div class="col">
+            <div class="label-info">Phone</div>
+            <p class="data-info">{{subscriber.PhoneNumber}}</p>
           </div>
           <div class="col-1 d-flex align-items-center justify-content-end">
             <button type="button" class="btn-close" aria-label="Close"></button>
           </div>
           <div class="btn-add-data">
-            <button class="add-new-data" role="button">Edit</button>
+            <button class="add-new-data" role="button" (click)="edit(subscriber.Id)">Edit</button>
           </div>
-
+          <hr>
         </div>
       </div>
       <div class="row">
         <div class="col-md-4">
-          <button class="add-new-data">Add</button>
+          <button class="add-new-data" (click)="add()" >Add</button>
         </div>
       </div>
+<!--
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">CountryCode</th>
+            <th scope="col">CountryName</th>
+            <th scope="col">PhoneCode</th>
+            <th scope="col">PhoneNumber</th>
+            <th scope="col">JobTitle</th>
+            <th scope="col">Area</th>
+            <th scope="col">Topics</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let subscriber of subscribers'>
+            <th scope="row">{{subscriber.Name}}</th>
+            <td>{{subscriber.Email}}</td>
+            <td>{{subscriber.CountryCode}}</td>
+            <td>{{subscriber.CountryName}}</td>
+            <td>{{subscriber.PhoneCode}}</td>
+            <td>{{subscriber.PhoneNumber}}</td>
+            <td>{{subscriber.JobTitle}}</td>
+            <td>{{subscriber.Area}}</td>
+            <td>{{subscriber.Topics}}</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="2">Larry the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+-->
     </div>
   </div>
 </div>

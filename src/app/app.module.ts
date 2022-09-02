@@ -7,6 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { SubscribersComponent } from './subscribers/subscribers.component';
 import { AddSubscriberComponent } from './add-subscriber/add-subscriber.component';
 import { EditSubscriberComponent } from './edit-subscriber/edit-subscriber.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { EditSubscriberComponent } from './edit-subscriber/edit-subscriber.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

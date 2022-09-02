@@ -4,34 +4,44 @@
       <div class="col-md-3"></div>
       <div class="col-md-6">
         <div class="formLogin">
-          <form class="form-log">
+          <form
+            [formGroup]="myForm"
+            class="form-log"
+            (ngSubmit)="onLogin(myForm.value)"
+          >
             <h2 class="login">LOGIN</h2>
             <div class="sectionName">
-              <span class="tittle">Username</span>
+              Username :
               <input
                 type="text"
-                id="username"
+                class="form-control"
+                id="UserName"
+                formControlName="UserName"
                 placeholder="Write your username"
               />
             </div>
             <div class="sectionPassword">
-              <span class="tittle">Password</span>
+              Password :
               <input
                 type="password"
-                id="password"
+                class="form-control"
+                id="Password"
+                formControlName="Password"
                 placeholder="Write your password"
               />
             </div>
-          </form>
-          <div class="section-buttons mt-5">
-            <div class="button-log">
-              <div class="login-class"></div>
-              <button class="btn-login" onClick="{login}">Log in</button>
+            <div class="section-buttons mt-5">
+              <div class="button-log">
+                <div class="login-class"></div>
+                <input type="submit" class="btn-login" value="Login" />
+              </div>
             </div>
-          </div>
+          </form>
         </div>
+        <!-- <div class="alert alert-danger" *ngIf="errorStatus">
+          <p>{{ errorMsg }}</p>
+        </div> -->
       </div>
-
       <div class="col-md-3"></div>
     </div>
   </div>

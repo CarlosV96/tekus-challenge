@@ -7,14 +7,18 @@
           <h1>Add subscriber</h1>
           <h3>Enter the necessary data</h3>
 
-          <form>
+          <form [formGroup]="addForm">
             <div class="sectionName">
               <span class="tittle">Name</span>
               <span> *</span>
               <input
-                class="inputs"
+                [class.is-invalid]="
+                  addForm.get('name')?.touched && addForm.get('name')?.invalid
+                "
                 type="text"
-                id="name"
+                class="form-control inputs"
+                id="addName"
+                formControlName="addName"
                 required="required"
                 placeholder="Write your name"
               />
@@ -24,9 +28,13 @@
               <span class="tittle">Email</span>
               <span> *</span>
               <input
-                class="inputs"
-                type="mail"
-                id="email"
+                [class.is-invalid]="
+                  addForm.get('email')?.touched && addForm.get('email')?.invalid
+                "
+                type="email"
+                class="form-control inputs"
+                id="addEmail"
+                formControlName="addEmail"
                 required="required"
                 placeholder="Write your email"
               />
@@ -35,9 +43,11 @@
             <div class="sectionName">
               <label for="code-country" class="tittle">Code country </label>
               <input
-                class="inputs"
                 type="text"
-                id="code-country"
+                class="form-control inputs"
+                id="addCodeCountry"
+                formControlName="addCodeCountry"
+                required="required"
                 placeholder="Write your code country"
               />
             </div>
@@ -45,20 +55,13 @@
             <div class="sectionName">
               <label for="phone" class="tittle">Phone</label>
               <input
-                class="inputs"
                 type="text"
-                id="phone"
+                class="form-control inputs"
+                id="addPhone"
+                formControlName="addPhone"
+                required="required"
                 placeholder="Write your phone"
               />
-            </div>
-
-            <div class="sectionName">
-              <label for="message" class="tittle">Message</label>
-              <textarea
-                type="text"
-                id="message"
-                placeholder="Let your message..."
-              ></textarea>
             </div>
 
             <button class="save" type="submit" name="submit" id="submit">
