@@ -22,11 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor( private api:ApiService, private router:Router) { }
 
-  //errorStatus:boolean = false;
-  //errorMsg:string = "";
-
   ngOnInit(): void {
-    this.checkLocal();
+    //this.checkLocal();
   }
 
   checkLocal() {
@@ -35,9 +32,6 @@ export class LoginComponent implements OnInit {
     }
   }
 
-/* ABAJO DE ESTO, INTENTÉ PONER LA INTERFAZ LoginI,
-PERO ME ARROJA ERROR EN EL HTML, que no se cumple con los requisitos
-*/
   onLogin(form:any) {
 
     this.api.login(form).subscribe(data => {
@@ -47,10 +41,6 @@ PERO ME ARROJA ERROR EN EL HTML, que no se cumple con los requisitos
         //console.log("dataresponse",dataResponse);
         localStorage.setItem("token", dataResponse.Token);
         this.router.navigate(['subscribers'])
-      } else {
-
-        //this.errorStatus = true;
-        //this.errorMsg = dataResponse.Status.error;
       }
     })
   }

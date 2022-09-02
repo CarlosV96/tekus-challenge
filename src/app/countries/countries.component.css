@@ -11,6 +11,7 @@
 body {
   background-color: #f5f5f5;
 }
+
 .contact-data {
   background-color: #efeeee;
   margin-bottom: 15px;
@@ -23,15 +24,6 @@ body {
   font-style: italic;
   font-weight: 600;
   margin-bottom: 0px;
-}
-.img-user {
-  width: 20px;
-  display: block;
-  margin: 0 auto;
-}
-
-.btn-add-data {
-  margin-top: 10px;
 }
 
 .add-new-data {
@@ -68,4 +60,3 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
